@@ -43,7 +43,9 @@ public class WordCounter extends BaseBasicBolt {
     }
 	public void execute(Tuple input, BasicOutputCollector collector) {
 		String str = input.getString(0);
-		//System.out.println("【wordcounter--tuple】:"+JSON.toJSONString(input));
+		System.out.println("【wordcounter--tuple】:"+JSON.toJSONString(input));
+		System.out.println("【word】:"+input.getStringByField("word"));
+		System.out.println("【line】:"+input.getStringByField("line"));
         if (!counters.containsKey(str)) {
             counters.put(str, 1);
         } else {

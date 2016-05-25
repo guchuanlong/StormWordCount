@@ -27,13 +27,13 @@ public class WordSpliter extends BaseBasicBolt {
 	            word = word.trim();
 	            if (StringUtils.isNotBlank(word)) {
 	                word = word.toLowerCase();
-	                collector.emit(new Values(word));
+	                collector.emit(new Values(word,line));
 	            }
 	        }
 	}
 
 	public void declareOutputFields(OutputFieldsDeclarer declarer) {
-		declarer.declare(new Fields("word"));
+		declarer.declare(new Fields("word","line"));
 
 	}
 
